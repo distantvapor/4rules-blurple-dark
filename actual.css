@@ -1,0 +1,362 @@
+/*
+ * Actual Budget — "nYNAB Blurple" Dark Theme
+ *
+ * Aesthetic: YNAB-style deep indigo backgrounds (hsl ~234°) + bright
+ *            blurple accent — completely distinct from Actual's built-in
+ *            navy/gray dark theme.
+ * Numbers:   #00ff7f / #ff0000 HIGH-CONTRAST preserved for accessibility.
+ *
+ * Apply: Settings → Themes → paste this entire block into
+ *        "Additional CSS overrides" → Apply
+ *        (select any built-in theme first; these vars override all of them)
+ */
+
+:root {
+
+  /* ================================================================
+     PAGE COLORS — deep indigo, not gray
+     ================================================================ */
+  --color-pageBackground:              hsl(234, 32%, 6%);  /* ✔ CONFIRMED: main app background (the dark void behind everything) */
+  --color-pageBackgroundModalActive:   hsl(234, 45%, 15%);  /* ✔ CONFIRMED: page bg tint visible behind open modals/settings panel */
+  --color-pageBackgroundTopLeft:       #0c0c14;   /* corner — neutral */
+  --color-pageBackgroundBottomRight:   #080810;   /* corner — neutral */
+  --color-pageBackgroundLineTop:       hsl(268, 82%, 60%);   /* vivid purple gradient line — decorative */
+  --color-pageBackgroundLineMid:       #10101a;   /* near-black mid gradient — desaturated */
+  --color-pageBackgroundLineBottom:    hsl(212, 34%, 89%);   /* light steel bottom line */
+  --color-pageText:                    #ffffff;
+  --color-pageTextLight:               #ffffff;
+  --color-pageTextSubdued:             #ffffff;
+  --color-pageTextDark:                #ffffff;
+  --color-pageTextPositive:            hsl(234, 90%, 72%);  /* YNAB blue — positive text */
+  --color-pageTextLink:                hsl(234, 90%, 72%);  /* ✔ CONFIRMED: hyperlink text color */
+  --color-pageTextLinkLight:           hsl(234, 90%, 72%);  /* ✔ CONFIRMED: lighter variant of link text */
+
+  /* ================================================================
+     CARDS & MODALS
+     ================================================================ */
+  --color-cardBackground:              hsl(234, 40%, 13%);  /* ✔ CONFIRMED: Settings page card/bubble backgrounds */
+  --color-cardBorder:                  hsl(234, 48%, 22%);  /* ✔ CONFIRMED: Settings page card/bubble borders */
+  --color-cardShadow:                  #08080f;
+
+  --color-modalBackground:             hsl(234, 45%, 15%);  /* ✔ CONFIRMED: modal dialog box background + reports dropdown panel */
+  --color-modalBorder:                 hsl(234, 45%, 24%);  /* ✔ CONFIRMED: modal border */
+  --color-overlayBackground:           rgba(0, 0, 0, 0.3);
+
+  /* ================================================================
+     BUDGET TABLE
+     ================================================================ */
+  --color-tableBackground:                    hsl(234, 28%, 13%);   /* ✔ CONFIRMED: budget table surface background */
+  /* NOTE: tableBackground also drives TapField/InputField bg on the mobile New Transaction form (Payee, Category, Account, Date, Notes rows).
+     Darkening it to 8% fixed the mobile highlight issue but killed desktop table contrast. DO NOT darken this to match mobilePageBackground.
+     Saturation reduced 44%→28% to kill purple cast on mobile budget rows. */
+  --color-tableRowBackgroundAlternate:        hsl(234, 28%, 13%);   /* ✔ CONFIRMED: alternating row background (same as table bg = no stripe) */
+  --color-tableRowBackgroundHover:            #1e1e24;   /* lifted neutral on hover */
+  --color-tableText:                          hsl(234, 8%, 65%);  /* ✔ CONFIRMED: subdued — Budgeted/Spent cell numbers on mobile; category names use buttonBareText so stay white */
+  --color-tableTextItemAdded:                 #ffffff;  /* uncategorized/new transaction indicator — keep white */
+  --color-tableTextLight:                     hsl(234, 8%, 65%);  /* subdued gray */
+  --color-tableTextSubdued:                   hsl(234, 8%, 65%);  /* subdued gray */
+  --color-tableTextSelected:                  #ffffff;
+  --color-tableTextHover:                     #ffffff;
+  --color-tableTextInactive:                  hsl(234, 8%, 55%);  /* inactive/disabled table text */
+  --color-tableHeaderText:                    #ffffff;
+  --color-tableHeaderBackground:              hsl(234, 28%, 13%);   /* ✔ CONFIRMED: "Budgeted / Spent / Balance" column header bar */
+  --color-tableBorder:                        #222228;
+  --color-tableBorderSelected:                hsl(234, 72%, 52%);  /* YNAB blue — selected row left-border */
+  --color-tableBorderHover:                   hsl(234, 72%, 62%);  /* lighter YNAB blue on hover */
+  --color-tableBorderSeparator:               #282830;
+  --color-tableRowBackgroundHighlight:        hsl(234, 40%, 8%);   /* ✔ CONFIRMED: active/tapped field background on mobile transaction form + selected row in budget table */
+  --color-tableRowBackgroundHighlightText:    #ffffff;
+  --color-tableRowHeaderBackground:           hsl(234, 28%, 13%);   /* ✔ CONFIRMED: category group rows ("Donations", "Food & Shopping" headers) — desktop */
+  --color-tableRowHeaderText:                 #ffffff;  /* ✔ CONFIRMED: text in category group header rows */
+
+  /* ================================================================
+     NUMBERS & BUDGETING
+     HIGH-CONTRAST #00ff7f / #ff0000 intentionally preserved for
+     color-blindness accessibility — do not soften.
+     ================================================================ */
+  --color-numberPositive:              #39ff14;   /* neon green — positive numbers */
+  --color-numberNegative:              #ff0000;   /* ← ACCESSIBILITY: do not change */
+  --color-numberNeutral:               hsl(234, 8%, 65%);   /* subdued gray — lets green/red pop */
+
+  --color-budgetNumberNegative:        #ff0000;   /* ← ACCESSIBILITY */
+  --color-budgetNumberZero:            hsl(234, 8%, 65%);   /* zero amounts */
+  --color-budgetNumberNeutral:         hsl(234, 8%, 65%);   /* neutral budget amounts */
+  --color-budgetNumberPositive:        hsl(234, 8%, 65%);   /* non-green positive balances */
+
+  --color-templateNumberFunded:        #39ff14;   /* neon green — funded goal */
+  --color-templateNumberUnderFunded:   #ffff00;   /* Electric Yellow — underfunded goal */
+
+  --color-toBudgetPositive:            #39ff14;   /* neon green — positive to budget */
+  --color-toBudgetZero:                #ffffff;
+  --color-toBudgetNegative:            #ff0000;   /* ← ACCESSIBILITY */
+
+  /* Budget cell bubble backgrounds — neutral dark gray */
+  --color-budgetTableBudgetedBackground:   #222228;
+  --color-budgetTableSpentBackground:      #222228;
+  --color-budgetTableAvailableBackground:  #222228;
+  --color-budgetNumberBackground:          #222228;
+
+  /* ================================================================
+     SIDEBAR
+     ================================================================ */
+  --color-sidebarBackground:               hsl(234, 22%, 10%);    /* ✔ CONFIRMED: left account/budget sidebar panel */
+  --color-sidebarItemBackgroundPending:    hsl(54, 95%, 76%);     /* yellow pending */
+  --color-sidebarItemBackgroundPositive:   hsl(86, 64%, 54%);     /* green synced */
+  --color-sidebarItemBackgroundFailed:     hsl(0, 90%, 69%);      /* red failed */
+  --color-sidebarItemAccentSelected:       hsl(252, 99%, 78%);    /* light blurple selected */
+  --color-sidebarItemBackgroundHover:      hsl(234, 51%, 23%);
+  --color-sidebarItemText:                 #ffffff;
+  --color-sidebarItemTextUpdated:          #94d53f;               /* green for updated items */
+  --color-sidebarItemTextSelected:         hsl(252, 100%, 90%);   /* bright blurple selected */
+  --color-sidebarBudgetName:               #ffffff;               /* white budget name */
+  --color-sidebarItemTextNegative:         #ff0000;               /* ← ACCESSIBILITY */
+
+  /* ================================================================
+     MENUS & AUTOCOMPLETE
+     ================================================================ */
+  --color-menuBackground:                  hsl(234, 32%, 7%);   /* ✔ CONFIRMED: dropdown/context menu panel background (incl. reports page dropdown) */
+  --color-menuItemBackground:              hsl(234, 30%, 6%);
+  /* ✔ CONFIRMED: individual menu item background — also drives the row background in the
+     mobile category picker and payee picker modals (the list of items you scroll through).
+     Darkened to near-page-background level (6-7%) for a deep dark dropdown aesthetic.
+     Do NOT increase saturation above ~40% or lightness above ~13% or the purple cast returns. */
+  --color-menuItemBackgroundHover:         hsl(234, 35%, 13%);  /* ✔ CONFIRMED: menu item background on hover — lifted from base for visibility */
+  --color-menuItemText:                    #ffffff;
+  --color-menuItemTextHover:               #ffffff;
+  --color-menuItemTextSelected:            hsl(252, 74%, 61%);
+  --color-menuItemTextHeader:              hsl(252, 100%, 78%);
+  --color-menuBorder:                      hsl(234, 32%, 14%);
+  --color-menuBorderHover:                 hsl(252, 74%, 61%);
+  --color-menuKeybindingText:              hsl(252, 100%, 78%);
+  --color-menuAutoCompleteBackground:      hsl(234, 40%, 8%);
+  --color-menuAutoCompleteBackgroundHover: hsl(234, 40%, 14%);
+  --color-menuAutoCompleteText:            #ffffff;
+  --color-menuAutoCompleteTextHeader:      hsl(252, 100%, 78%);
+  --color-menuAutoCompleteItemText:        #ffffff;
+
+  /* ================================================================
+     MOBILE
+     ================================================================ */
+  --color-mobileHeaderBackground:          hsl(234, 20%, 7%);     /* near-black header */
+  --color-mobileHeaderText:                #ffffff;
+  --color-mobileHeaderTextSubdued:         hsl(213, 16%, 78%);
+  --color-mobileHeaderTextHover:           rgba(200, 200, 200, 0.15);
+  --color-mobilePageBackground:            hsl(234, 35%, 5%);    /* ✔ CONFIRMED: mobile full-page background (behind all content) */
+  --color-mobileNavBackground:             hsl(234, 18%, 7%);    /* ✔ CONFIRMED: mobile bottom nav bar background — matched to YNAB near-black */
+  --color-mobileNavItem:                   hsl(234, 10%, 60%);   /* ✔ CONFIRMED: mobile bottom nav bar icon + text color (unselected) — medium gray like YNAB */
+  --color-mobileNavItemSelected:           hsl(234, 55%, 55%);   /* ✔ CONFIRMED: mobile bottom nav active/selected item — matches YNAB pill indigo color */
+  --color-mobileAccountShadow:             hsl(234, 35%, 30%);
+  --color-mobileAccountText:               hsl(252, 88%, 34%);
+  --color-mobileTransactionSelected:       hsl(252, 74%, 61%);
+  --color-mobileViewTheme:                 hsl(234, 20%, 7%);    /* near-black status bar */
+  --color-mobileConfigServerViewTheme:     hsl(234, 80%, 50%);
+
+  /* ================================================================
+     MARKDOWN
+     ================================================================ */
+  --color-markdownNormal:                  hsl(234, 87%, 37%);
+  --color-markdownDark:                    hsl(234, 80%, 50%);
+  --color-markdownLight:                   hsl(234, 87%, 30%);
+
+  /* ================================================================
+     BUTTONS
+     ================================================================ */
+
+  /* Menu / toggle buttons */
+  --color-buttonMenuText:                      #ffffff;
+  --color-buttonMenuTextHover:                 #ffffff;
+  --color-buttonMenuBackground:                transparent;
+  --color-buttonMenuBackgroundHover:           rgba(200, 200, 200, 0.25);
+  --color-buttonMenuBorder:                    hsl(234, 30%, 50%);
+  --color-buttonMenuSelectedText:              hsl(88, 71%, 30%);
+  --color-buttonMenuSelectedTextHover:         hsl(35, 82%, 29%);
+  --color-buttonMenuSelectedBackground:        hsl(54, 95%, 76%);   /* yellow pill */
+  --color-buttonMenuSelectedBackgroundHover:   hsl(53, 88%, 66%);
+  --color-buttonMenuSelectedBorder:            hsl(54, 95%, 76%);
+
+  /* Primary (YNAB blue CTA) */
+  --color-buttonPrimaryText:               #ffffff;
+  --color-buttonPrimaryTextHover:          #ffffff;
+  --color-buttonPrimaryBackground:         hsl(234, 72%, 52%);
+  --color-buttonPrimaryBackgroundHover:    hsl(234, 72%, 44%);
+  --color-buttonPrimaryBorder:             hsl(234, 72%, 52%);
+  --color-buttonPrimaryShadow:             rgba(0, 0, 0, 0.6);
+  --color-buttonPrimaryDisabledText:       hsl(234, 35%, 30%);
+  --color-buttonPrimaryDisabledBackground: hsl(234, 25%, 60%);
+  --color-buttonPrimaryDisabledBorder:     hsl(234, 25%, 60%);
+
+  /* Normal (secondary) */
+  --color-buttonNormalText:                #ffffff;
+  --color-buttonNormalTextHover:           #ffffff;
+  --color-buttonNormalBackground:          hsl(234, 72%, 52%);  /* ✔ CONFIRMED: secondary buttons */
+  --color-buttonNormalBackgroundHover:     hsl(234, 72%, 44%);  /* ✔ CONFIRMED: secondary button on hover */
+  --color-buttonNormalBorder:              hsl(234, 72%, 52%);  /* ✔ CONFIRMED: secondary button border */
+  --color-buttonNormalShadow:              rgba(0, 0, 0, 0.4);
+  --color-buttonNormalSelectedText:        #ffffff;
+  --color-buttonNormalSelectedBackground:  hsl(234, 72%, 52%);
+  --color-buttonNormalDisabledText:        hsl(234, 30%, 50%);
+  --color-buttonNormalDisabledBackground:  hsl(234, 40%, 23%);
+  --color-buttonNormalDisabledBorder:      hsl(234, 30%, 50%);
+
+  /* Bare (ghost/text-only) */
+  --color-buttonBareText:                  #ffffff;  /* ✔ CONFIRMED: budget category names in table (e.g. "Donations", "Dining Out") — these are bare buttons */
+  --color-buttonBareTextHover:             #ffffff;  /* ✔ CONFIRMED: budget category name color on hover */
+  --color-buttonBareBackground:            transparent;
+  --color-buttonBareBackgroundHover:       rgba(200, 200, 200, 0.3);
+  --color-buttonBareBackgroundActive:      rgba(200, 200, 200, 0.5);
+  --color-buttonBareDisabledText:          hsl(235, 10%, 79%);
+  --color-buttonBareDisabledBackground:    transparent;
+
+  /* ================================================================
+     CALENDAR
+     ================================================================ */
+  --color-calendarText:                    #ffffff;
+  --color-calendarBackground:              #1a1a1f;
+  --color-calendarItemText:                #ffffff;
+  --color-calendarItemBackground:          #1a1a1f;
+  --color-calendarSelectedBackground:      hsl(234, 72%, 52%);   /* YNAB blue selected date */
+  --color-calendarCellBackground:          #111115;
+
+  /* ================================================================
+     NOTICES, WARNINGS & ERRORS
+     ================================================================ */
+  --color-noticeBackground:                hsl(252, 70%, 56%);  /* ✔ CONFIRMED: blue notice banner background (e.g. "You have 1 uncategorized transactions" bar) */
+  --color-noticeBackgroundLight:           hsl(252, 70%, 46%);
+  --color-noticeBackgroundDark:            hsl(252, 70%, 62%);
+  --color-noticeText:                      #ffffff;
+  --color-noticeTextLight:                 #ffffff;
+  --color-noticeTextDark:                  #ffffff;
+  --color-noticeTextMenu:                  #ffffff;
+  --color-noticeBorder:                    hsl(252, 74%, 55%);
+
+  --color-warningBackground:               hsl(234, 60%, 30%);  /* ✔ CONFIRMED: warning/uncategorized indicator banner background */
+  --color-warningText:                     hsl(234, 90%, 82%);
+  --color-warningTextLight:                hsl(234, 90%, 88%);
+  --color-warningTextDark:                 #ffffff;
+  --color-warningBorder:                   hsl(234, 72%, 48%);
+
+  --color-errorBackground:                 hsl(350, 94%, 28%);
+  --color-errorText:                       hsl(0, 98%, 80%);
+  --color-errorTextDark:                   hsl(0, 100%, 87%);
+  --color-errorTextDarker:                 hsl(0, 100%, 87%);
+  --color-errorTextMenu:                   hsl(0, 98%, 80%);
+  --color-errorBorder:                     hsl(356, 75%, 53%);
+
+  --color-upcomingBackground:              hsl(234, 72%, 52%);
+  --color-upcomingText:                    #ffffff;
+  --color-upcomingBorder:                  hsl(234, 72%, 42%);
+
+  /* ================================================================
+     FORMS & INPUTS
+     ================================================================ */
+  --color-formLabelText:                   hsl(252, 95%, 94%);
+  --color-formLabelBackground:             hsl(234, 32%, 28%);
+  --color-formInputBackground:             hsl(234, 40%, 10%);  /* ✔ CONFIRMED: text input field background + reports page dropdown trigger button */
+  --color-formInputBackgroundSelected:     hsl(234, 40%, 10%);  /* ✔ CONFIRMED: input background when focused — matched to resting state */
+  --color-formInputBackgroundSelection:    hsl(252, 74%, 61%);
+  --color-formInputBorder:                 hsl(234, 38%, 20%);
+  --color-formInputTextReadOnlySelection:  hsl(234, 28%, 13%);
+  /* ✔ CONFIRMED: controls TapField background color in the DISABLED state.
+     On the mobile New Transaction form, when ANY field is active/editing (e.g. you tap
+     Amount), all other fields (Payee, Category, Account, Date, Notes) receive
+     data-disabled="true" and render with THIS color as their background.
+     Default value was hsl(234, 28%, 27%) — way too light, looked "highlighted".
+     Set to match tableBackground (13%) so disabled fields are visually identical
+     to their resting state. Do NOT increase lightness above ~13%. */
+  --color-formInputBorderSelected:         hsl(234, 38%, 20%);  /* matched to resting border — no highlight ring */
+  --color-formInputText:                   #ffffff;
+  --color-formInputTextSelected:           #000000;
+  --color-formInputTextPlaceholder:        hsl(236, 8%, 64%);
+  --color-formInputTextPlaceholderSelected:hsl(236, 8%, 64%);
+  --color-formInputTextSelection:          hsl(234, 40%, 23%);
+  --color-formInputShadowSelected:         transparent;  /* no glow on focus */
+  --color-formInputTextHighlight:          hsl(252, 74%, 61%);
+
+  /* ================================================================
+     CHECKBOXES & TOGGLES
+     ================================================================ */
+  --color-checkboxText:                    #ffffff;
+  --color-checkboxBackgroundSelected:      hsl(252, 74%, 58%);
+  --color-checkboxBorderSelected:          hsl(252, 74%, 58%);
+  --color-checkboxShadowSelected:          hsl(252, 100%, 69%);
+  --color-checkboxToggleBackground:        hsl(234, 17%, 17%);
+  --color-checkboxToggleBackgroundSelected:hsl(252, 70%, 50%);
+  --color-checkboxToggleDisabled:          hsl(219, 9%, 50%);
+
+  /* ================================================================
+     PILLS / FILTER TAGS  (also controls Settings page card bubbles)
+     ================================================================ */
+  --color-pillBackground:                  hsl(234, 44%, 13%);  /* ✔ CONFIRMED: filter pill/tag background AND Settings page card bubble backgrounds */
+  --color-pillBackgroundLight:             hsl(234, 42%, 9%);   /* ✔ CONFIRMED: darker variant of pill background */
+  --color-pillText:                        #ffffff;
+  --color-pillTextHighlighted:             hsl(252, 100%, 85%);
+  --color-pillBorder:                      hsl(234, 48%, 22%);
+  --color-pillBorderDark:                  hsl(234, 48%, 22%);  /* ✔ CONFIRMED: Settings page card bubble border color */
+  --color-pillBackgroundSelected:          hsl(234, 72%, 52%);
+  --color-pillTextSelected:                #ffffff;
+  --color-pillBorderSelected:              hsl(234, 72%, 62%);
+  --color-pillTextSubdued:                 #ffffff;
+
+  /* ================================================================
+     REPORTS
+     ================================================================ */
+  --color-reportsRed:                      hsl(1, 81%, 63%);
+  --color-reportsBlue:                     hsl(252, 82%, 63%);
+  --color-reportsGreen:                    hsl(164, 100%, 31%);
+  --color-reportsGray:                     hsl(252, 45%, 62%);
+  --color-reportsLabel:                    #ffffff;
+  --color-reportsInnerLabel:               hsl(234, 40%, 23%);
+  --color-reportsNumberPositive:           #39ff14;   /* neon green */
+  --color-reportsNumberNegative:           #ff0000;   /* ← ACCESSIBILITY */
+  --color-reportsNumberNeutral:            #ffffff;
+  --color-reportsChartFill:                #94d53f;
+
+  /* ================================================================
+     CHART QUALITATIVE — YNAB-style vivid blurple-anchored palette
+     ================================================================ */
+  --color-chartQual1: #94d53f;   /* lime green — matches Age of Money chart */
+  --color-chartQual2: #94d53f;   /* lime green   */
+  --color-chartQual3: #f6ca1e;   /* gold         */
+  --color-chartQual4: #cf5e66;   /* muted coral  */
+  --color-chartQual5: #7583ff;   /* periwinkle   */
+  --color-chartQual6: #ace765;   /* light green  */
+  --color-chartQual7: #f7d455;   /* straw yellow */
+  --color-chartQual8: #e48686;   /* dusty rose   */
+  --color-chartQual9: #b3baff;   /* lavender     */
+
+  /* ================================================================
+     TAGS & NOTES
+     ================================================================ */
+  --color-noteTagBackground:               hsl(234, 72%, 52%);
+  --color-noteTagBackgroundHover:          hsl(234, 72%, 44%);
+  --color-noteTagDefault:                  hsl(234, 72%, 52%);
+  --color-noteTagText:                     #ffffff;
+
+  /* ================================================================
+     BUDGET MONTH COLUMNS
+     ================================================================ */
+  --color-budgetOtherMonth:                hsl(234, 18%, 14%);  /* background of individual category rows in non-current months */
+  --color-budgetCurrentMonth:              hsl(234, 22%, 11%);  /* background of individual category rows in the current month */
+  --color-budgetHeaderOtherMonth:          hsl(234, 18%, 7%);   /* background of group header rows (e.g. "Bills", "Needs") in non-current months */
+  --color-budgetHeaderCurrentMonth:        hsl(234, 22%, 6%);   /* background of group header rows (e.g. "Bills", "Needs") in the current month */
+
+  /* ================================================================
+     FLOATING ACTION BAR & TOOLTIPS
+     ================================================================ */
+  --color-floatingActionBarBackground:     hsl(234, 72%, 52%);  /* YNAB blue — "N selected" action bar */
+  --color-floatingActionBarBorder:         hsl(234, 72%, 52%);
+  --color-floatingActionBarText:           #ffffff;
+  --color-tooltipText:                     #ffffff;
+  --color-tooltipBackground:               hsl(234, 45%, 15%);  /* ✔ CONFIRMED: tooltip popup background (same as modal/menu) */
+  --color-tooltipBorder:                   hsl(234, 45%, 24%);  /* ✔ CONFIRMED: tooltip border */
+
+  /* ================================================================
+     RULES ENGINE / KEYWORD HIGHLIGHTING
+     ================================================================ */
+  --color-keywordText:                     hsl(252, 100%, 78%);
+  --color-variableText:                    hsl(252, 100%, 78%);
+  --color-stringText:                      #ffffff;
+  --color-pageTextPositiveSubdued:         hsl(252, 100%, 78%);
+  --color-accountTextNegative:             #ff0000;   /* ← ACCESSIBILITY */
+
+}
