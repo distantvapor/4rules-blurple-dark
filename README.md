@@ -1,24 +1,25 @@
 ## Desktop Client
 ### Budget Overview (Desktop)
-<img width="1902" height="911" alt="image" src="https://github.com/user-attachments/assets/db4b9f49-cd1a-434f-9685-d38bda014d80" />
+<img width="1138" height="898" alt="image" src="https://github.com/user-attachments/assets/8eb48484-316f-4b06-9a43-fbef520aa9df" />
 
 ### Reports Page (Desktop)
-<img width="1908" height="908" alt="image" src="https://github.com/user-attachments/assets/579d085b-7dae-4adf-ba83-67f8535a90cf" />
+<img width="1145" height="896" alt="image" src="https://github.com/user-attachments/assets/5c098db5-ea4f-4beb-950d-2e2f388da85a" />
 
 ### Account Transactions (Desktop)
-<img width="1899" height="906" alt="image" src="https://github.com/user-attachments/assets/f7aa91b8-40bd-40e7-bca8-7b599bf233e6" />
+<img width="1147" height="892" alt="image" src="https://github.com/user-attachments/assets/c094500d-a54b-40f9-b0c7-6cf157b1d510" />
 
 
 ## Mobile Client
 
 ### Budget Overview (Mobile)
-<img width="410" height="816" alt="image" src="https://github.com/user-attachments/assets/3ac0e6f4-4360-4f08-a544-6fc1447c42bf" />
+<img width="421" height="820" alt="image" src="https://github.com/user-attachments/assets/8ebbd572-a175-42a0-9737-df71ffef814e" />
 
 ### Reports Page (Mobile)
-<img width="413" height="818" alt="image" src="https://github.com/user-attachments/assets/585e4439-23e8-462d-a5ad-ad48738a488e" />
+<img width="419" height="807" alt="image" src="https://github.com/user-attachments/assets/43dd10a1-10f5-4bcb-8e55-881f6ab307cc" />
 
 ### New Transacgtion (Mobile)
-<img width="418" height="818" alt="image" src="https://github.com/user-attachments/assets/c1f8e14b-58b7-4788-8e74-44ea1735268d" />
+<img width="423" height="813" alt="image" src="https://github.com/user-attachments/assets/b405348d-e39b-4121-a310-1dd8837597b0" />
 
 ### Account Transactions (Mobile)
-<img width="422" height="829" alt="image" src="https://github.com/user-attachments/assets/15464acb-6555-43b7-8e0c-c32205c733d5" />
+<img width="419" height="811" alt="image" src="https://github.com/user-attachments/assets/e1d343f8-5c96-4dd6-9d50-529de5f5147a" />
+
