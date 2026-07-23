@@ -185,18 +185,18 @@
   --color-buttonPrimaryDisabledBackground: hsl(234, 25%, 60%);
   --color-buttonPrimaryDisabledBorder:     hsl(234, 25%, 60%);
 
-  /* Normal (secondary) */
-  --color-buttonNormalText:                #ffffff;
+/* Normal (secondary) - Lifted Blurple-Gray (Better Contrast) */
+  --color-buttonNormalText:                #ffffff;             /* clean white text */
   --color-buttonNormalTextHover:           #ffffff;
-  --color-buttonNormalBackground:          hsl(234, 85%, 67%);  /* ✔ CONFIRMED: secondary buttons */
-  --color-buttonNormalBackgroundHover:     hsl(234, 85%, 58%);  /* ✔ CONFIRMED: secondary button on hover */
-  --color-buttonNormalBorder:              hsl(234, 85%, 67%);  /* ✔ CONFIRMED: secondary button border */
+  --color-buttonNormalBackground:          hsl(234, 25%, 24%);  /* lifted background for clear button separation */
+  --color-buttonNormalBackgroundHover:     hsl(234, 30%, 32%);  /* distinct hover state */
+  --color-buttonNormalBorder:              hsl(234, 28%, 32%);  /* visible border outline */
   --color-buttonNormalShadow:              rgba(0, 0, 0, 0.4);
   --color-buttonNormalSelectedText:        #ffffff;
-  --color-buttonNormalSelectedBackground:  hsl(234, 85%, 67%);
-  --color-buttonNormalDisabledText:        hsl(234, 30%, 50%);
-  --color-buttonNormalDisabledBackground:  hsl(234, 40%, 23%);
-  --color-buttonNormalDisabledBorder:      hsl(234, 30%, 50%);
+  --color-buttonNormalSelectedBackground:  hsl(234, 30%, 35%);
+  --color-buttonNormalDisabledText:        hsl(234, 15%, 45%);
+  --color-buttonNormalDisabledBackground:  hsl(234, 18%, 14%);
+  --color-buttonNormalDisabledBorder:      hsl(234, 15%, 22%);
 
   /* Bare (ghost/text-only) */
   --color-buttonBareText:                  #ffffff;  /* ✔ CONFIRMED: budget category names in table (e.g. "Donations", "Dining Out") — these are bare buttons */
